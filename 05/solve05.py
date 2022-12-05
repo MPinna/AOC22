@@ -8,9 +8,9 @@ def parse_step(raw_step: str):
     return list(map(int, step_numbers_string))
 
 def build_stacks(raw_stacks: list):
-    num_of_stacks = int(raw_stacks[-1].split("  ")[-1])
-    stacks = {}
     stack_line: str = raw_stacks[-1]
+    num_of_stacks = int(stack_line.split("  ")[-1])
+    stacks = {}
     for stack_number in range(1, num_of_stacks + 1):
         stack_index = stack_line.index(str(stack_number))
         stacks[stack_number] = []
