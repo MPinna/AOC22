@@ -84,10 +84,8 @@ class Grid():
         return
 
     def move_tail(self):
-        # print("Moving tail accordingly")
         delta_x = self._knots[0]["x"] - self._knots[ROPE_LEN - 1]["x"] 
         delta_y = self._knots[0]["y"] - self._knots[ROPE_LEN - 1]["y"] 
-        # print(f"Delta x: {delta_x}, delta y: {delta_y}")
         if abs(delta_x) > 1: # if diagonal movement is needed
             self._knots[ROPE_LEN - 1]["x"] += sign(delta_x) # update tail x
             self._knots[ROPE_LEN - 1]["y"] += delta_y # update tail y
@@ -96,11 +94,7 @@ class Grid():
             self._knots[ROPE_LEN - 1]["x"] += delta_x # update tail x
 
         tail_x, tail_y = self._knots[ROPE_LEN - 1]["x"], self._knots[ROPE_LEN - 1]["y"]
-        # print(f"Tail is now at: {tail_x},{tail_y}")
-        # print("Before:" + self._grid[self._knots[ROPE_LEN - 1]["y"]][self._knots[ROPE_LEN - 1]["x"]])
-        # print(f"Marking tail position {self._knots[ROPE_LEN - 1]['x']},{self._knots[ROPE_LEN - 1]['y']} as visited")
         self._grid[self._knots[ROPE_LEN - 1]["y"]][self._knots[ROPE_LEN - 1]["x"]] = "#"
-        # self.print_grid()
         return
 
     def move_body(self):
